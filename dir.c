@@ -3517,7 +3517,7 @@ int get_sparse_checkout_patterns(struct pattern_list *pl)
 	return res;
 }
 
-int remove_path(const char *name)
+int remove_path(/*const*/ char *name)
 {
 	const char *last;
 
