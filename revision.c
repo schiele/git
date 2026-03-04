@@ -2175,7 +2175,7 @@ static int handle_revision_arg_1(const char *arg_, struct rev_info *revs, int fl
 		goto out;
 	}
 
-	mark = strstr(arg, "^@");
+	mark = (char *)strstr(arg, "^@");
 	if (mark && !mark[2]) {
 		arg_minus_at = xmemdupz(arg, mark - arg);
 		if (add_parents_only(revs, arg_minus_at, flags, 0)) {
@@ -2183,13 +2183,13 @@ static int handle_revision_arg_1(const char *arg_, struct rev_info *revs, int fl
 			goto out;
 		}
 	}
-	mark = strstr(arg, "^!");
+	mark = (char *)strstr(arg, "^!");
 	if (mark && !mark[2]) {
 		arg_minus_excl = xmemdupz(arg, mark - arg);
 		if (add_parents_only(revs, arg_minus_excl, flags ^ (UNINTERESTING | BOTTOM), 0))
 			arg = arg_minus_excl;
 	}
-	mark = strstr(arg, "^-");
+	mark = (char *)strstr(arg, "^-");
 	if (mark) {
 		int exclude_parent = 1;
 
