@@ -501,7 +501,7 @@ struct bloom_filter *get_or_compute_bloom_filter(struct repository *r,
 		struct hashmap_iter iter;
 
 		for (i = 0; i < diff_queued_diff.nr; i++) {
-			const char *path = diff_queued_diff.queue[i]->two->path;
+			/*const*/ char *path = diff_queued_diff.queue[i]->two->path;
 
 			/*
 			 * Add each leading directory of the changed file, i.e. for

@@ -2234,7 +2234,7 @@ static const char *rstrip_ref_components(const char *refname, int len)
 	}
 
 	while (remaining-- > 0) {
-		char *p = strrchr(start, '/');
+		char *p = (char *)strrchr(start, '/');
 		if (!p) {
 			free((char *)to_free);
 			return xstrdup("");
