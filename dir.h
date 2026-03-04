@@ -555,7 +555,7 @@ int for_each_file_in_dir(struct strbuf *path, file_iterator fn, const void *data
  * those empty directories are not startup_info->original_cwd.  Ignores
  * ENOENT.
  */
-int remove_path(const char *path);
+int remove_path(/*const*/ char *path);
 
 int git_fspathcmp(const char *a, const char *b);
 int fspatheq(const char *a, const char *b);
